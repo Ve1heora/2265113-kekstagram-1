@@ -7,15 +7,18 @@ const createPhotoEl = ({url, likes, comments}) => {
   photoEl.querySelector('.picture__img').src = url;
   photoEl.querySelector('.picture__likes').textContent = likes;
   photoEl.querySelector('.picture__comments').textContent = comments.length;
+
   return photoEl;
 };
 
 export const renderGallery = (photos) => {
   const galleryFragment = document.createDocumentFragment();
+
   photos.forEach((photo) => {
     const photoEl = createPhotoEl(photo);
     galleryFragment.append(photoEl);
   });
+
   picturesContainer.append(galleryFragment);
 };
 
